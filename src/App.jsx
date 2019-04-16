@@ -33,7 +33,7 @@ class App extends Component {
     chrome.runtime.sendMessage(EXTENSION_ID, {
       action: 'web',
     }, (response) => {
-      console.log('%c web send message response', 'color: #b0b', response);
+      console.log('%c web send message response', 'color: #0bb', response);
       this.setState({
         response
       });
@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   postMessage = (event) => {
-    console.log('%c post message', 'color: #b0b', this.port);
+    // console.log('%c post message', 'color: #b0b', this.port);
     this.port.postMessage({
       prompt: 'web'
     });

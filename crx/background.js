@@ -1,9 +1,10 @@
-console.log('%c background', 'color: #0bb');
+console.log('%c background', 'color: #bb0');
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log('%c message', 'color: #b0b', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
+  console.log('%c message', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
   sendResponse({
     answer: 'send message received',
+    sender: 'background',
   });
 });
 
@@ -14,6 +15,7 @@ chrome.runtime.onConnect.addListener((port) => {
     port.postMessage({
       name: port.name,
       answer: 'post message received',
+      sender: 'background',
     });
   });
 });

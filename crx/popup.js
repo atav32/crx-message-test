@@ -1,4 +1,4 @@
-console.log('%c popup', 'color: #0bb');
+console.log('%c popup', 'color: #bb0');
 
 const messageContainer = document.querySelector('.message-container');
 
@@ -16,7 +16,7 @@ if (sendMessageButton) {
     chrome.runtime.sendMessage({
       action: 'popup'
     }, (response) => {
-      console.log('%c popup send message response', 'color: #b0b', response);
+      console.log('%c popup send message response', 'color: #0bb', response);
       if (messageContainer) {
         messageContainer.innerText = JSON.stringify(response, null, 2);
       }
@@ -32,3 +32,11 @@ if (postMessageButton) {
     });
   });
 }
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log('%c message', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
+  sendResponse({
+    answer: 'send message received',
+    source: 'popup',
+  });
+});
