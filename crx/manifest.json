@@ -1,0 +1,43 @@
+{
+  "name": "CRX Message Test",
+  "short_name": "crx-message-test",
+  "author": "ByteGain",
+  "version": "0.4.16.2",
+  "description": "",
+  "background": {
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_title": "CRX Message Test",
+    "default_icon": "logo-128.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "logo-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://localhost/*"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": ["content.js"],
+  "permissions": [
+    "*://localhost/*",
+    "background",
+    "contextMenus",
+    "privacy",
+    "storage",
+    "tabs",
+    "unlimitedStorage",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "externally_connectable": {
+    "matches": ["*://localhost/*"]
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
