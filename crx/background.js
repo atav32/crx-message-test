@@ -8,6 +8,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       sender: 'background',
     });
   });
+
+  // sending a new message
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      prompt: 'respond send message to active tab',
+      sender: 'background',
+    });
+  });
+
   return true; // async response
 });
 

@@ -2,7 +2,7 @@
   "name": "CRX Message Test",
   "short_name": "crx-message-test",
   "author": "ByteGain",
-  "version": "0.4.16.2",
+  "version": "0.4.16.4",
   "description": "",
   "background": {
     "page": "background.html"

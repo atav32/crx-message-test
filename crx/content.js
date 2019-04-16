@@ -34,7 +34,18 @@ if (postMessageButton) {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log('%c message', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
+  console.log('%c message listener 1', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
+  setTimeout(() => {
+    sendResponse({
+      answer: 'send message received',
+      source: 'content',
+    });
+  });
+  return true; // async response
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log('%c message listener 2', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
   setTimeout(() => {
     sendResponse({
       answer: 'send message received',
