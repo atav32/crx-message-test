@@ -6,7 +6,7 @@ Because, honestly, the [official documentation](https://developer.chrome.com/ext
 - Prefer `port.postMessage()` over `runtime.sendMessage()`
 - `sendMessage()` will call the response callback automatically (even if none is supplied) and pass in `undefined`
 - External page cannot listen to messages, only send
-- to avoid race conditions, manually inject the content script, instead of relying on the manifest file
+- Avoid race conditions by manually injecting the content script, instead of relying on the manifest file
 
 ### Resources
 - https://developer.chrome.com/apps/runtime#method-sendMessage
