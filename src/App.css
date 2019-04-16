@@ -31,3 +31,16 @@
     transform: rotate(360deg);
   }
 }
+
+.App-webpage-section {
+  background-color: #eeeeee;
+}
+
+.App-content-section {
+  background-color: #ddddff;
+}
+
+.App-section-title {
+  font-size: 1.32em;
+  font-weight: 500;
+}
