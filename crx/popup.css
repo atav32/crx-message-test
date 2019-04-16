@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  margin: 0;
+  padding: 1em;
+  min-width: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+button {
+  margin: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 0.38em 0.62em;
+  font-size: 1.32em;
+  color: #333333;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
