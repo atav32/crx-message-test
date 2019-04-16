@@ -1,6 +1,6 @@
 console.log('%c content', 'color: #bb0');
 
-const messageContainer = document.querySelector('.App-response-section');
+const messageContainer = document.querySelector('.App-response-section .App-response-json');
 
 const port = chrome.runtime.connect({ name: 'content' });
 port.onMessage.addListener((message) => {

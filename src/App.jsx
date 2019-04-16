@@ -10,10 +10,14 @@ const EXTENSION_ID = 'abhjpphflgkfkmcfphlbonifnaadeecc';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.response = '';
+    this.state = {
+      response: ''
+    };
   }
 
   componentDidMount() {
+    console.log('%c chrome runtime', 'color: #b0b', chrome.runtime);
+
     this.port = chrome.runtime.connect(EXTENSION_ID, { name: 'web' });
     this.port.onDisconnect.addListener((event) => {
       console.log('%c port disconnected', 'color: #b0b', event);
@@ -27,6 +31,8 @@ class App extends Component {
         response: message
       });
     });
+
+    // external runtime cannot listen to messages
   }
 
   sendMessage = (event) => {
@@ -91,7 +97,9 @@ class App extends Component {
         </Section>
         <Section className="App-response-section">
           <h2 className="App-section-title">Response</h2>
-          <p>{JSON.stringify(this.response, null, 2)}</p>
+          <p className="App-response-json">
+            {JSON.stringify(this.state.response, null, 2)}
+          </p>
         </Section>
       </div>
     );
