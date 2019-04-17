@@ -25,7 +25,7 @@ Because, honestly, the [official documentation](https://developer.chrome.com/ext
 
 -----
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
 ### Available Scripts
 
