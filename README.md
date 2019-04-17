@@ -18,7 +18,7 @@ Because, honestly, the [official documentation](https://developer.chrome.com/ext
 
 1. Run `npm i`
 2. Run `npm start`
-3. Go to chrome://extensions
+3. Go to [chrome://extensions](chrome://extensions)
 4. Enable Developer Mode in Chrome
 5. Click-&-drag the crx/ directory into the Chrome Extensions page
 
