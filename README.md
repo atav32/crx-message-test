@@ -14,6 +14,16 @@ Because, honestly, the [official documentation](https://developer.chrome.com/ext
 
 -----
 
+### Install
+
+1. Run `npm i`
+2. Run `npm start`
+3. Go to chrome://extensions
+4. Enable Developer Mode in Chrome
+5. Click-&-drag the crx/ directory into the Chrome Extensions page
+
+-----
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Available Scripts
