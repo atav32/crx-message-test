@@ -1,5 +1,5 @@
 ## Chrome Extension Messaging API has *awful* documentation
-Time to get our hands dirty.
+Time to get our hands dirty with some advanced use-cases.
 
 ### Lessons
 - Prefer `port.postMessage()` over `runtime.sendMessage()`
