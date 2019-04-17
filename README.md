@@ -1,6 +1,5 @@
-## Exploring how Chrome Extension messaging *actually* works
-
-Because, honestly, the [official documentation](https://developer.chrome.com/extensions/messaging) is inadequate. Time to get our hands dirty.
+## Chrome Extension Messaging API has *awful* documentation
+Time to get our hands dirty.
 
 ### Lessons
 - Prefer `port.postMessage()` over `runtime.sendMessage()`
