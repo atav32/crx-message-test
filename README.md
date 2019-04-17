@@ -1,4 +1,4 @@
-## Chrome Extension Messaging API has *awful* documentation
+## [Chrome Extension Messaging API](https://developer.chrome.com/extensions/messaging) has *awful* documentation
 Time to get our hands dirty with some advanced use-cases.
 
 ### Lessons
