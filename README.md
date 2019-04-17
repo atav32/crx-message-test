@@ -4,7 +4,7 @@ Time to get our hands dirty with some advanced use-cases.
 ### Lessons
 - Prefer `port.postMessage()` over `runtime.sendMessage()`
 - `sendMessage()` will call the response callback automatically (even if none is supplied) and pass in `undefined`
-- External page cannot listen for messages, only send
+- External page/app cannot listen for messages, only send
 - Avoid race conditions by manually injecting the content script, instead of relying on the manifest file
 
 ### Resources
