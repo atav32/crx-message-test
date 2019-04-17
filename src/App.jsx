@@ -1,10 +1,12 @@
+/* global chrome */
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Button, Level, Section } from 'react-bulma-components';
 
-/* global chrome */
+
 const EXTENSION_ID = 'abhjpphflgkfkmcfphlbonifnaadeecc';
 
 class App extends Component {

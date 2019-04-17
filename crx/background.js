@@ -1,5 +1,7 @@
 console.log('%c background', 'color: #bb0');
 
+let extensionPort, externalPort;
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('%c message', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
   setTimeout(() => {
@@ -17,6 +19,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
   });
 
+  // posting a port message
+  if (extensionPort) {
+    extensionPort.postMessage({
+      prompt: 'send message received',
+      origin: sender.tab,
+      sender: 'background',
+    });
+  }
+
   return true; // async response
 });
 
@@ -32,6 +43,7 @@ chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => 
 
 chrome.runtime.onConnect.addListener((port) => {
   console.log('%c on connect', 'color: #b0b', port.name);
+  extensionPort = port;
   port.onMessage.addListener((message) => {
     console.log('%c port message', 'color: #b0b', message);
     setTimeout(() => {
@@ -46,6 +58,7 @@ chrome.runtime.onConnect.addListener((port) => {
 
 chrome.runtime.onConnectExternal.addListener((port) => {
   console.log('%c on connect external', 'color: #b0b', port.name);
+  externalPort = port;
   port.onMessage.addListener((message) => {
     console.log('%c external port message', 'color: #b0b', message);
     setTimeout(() => {

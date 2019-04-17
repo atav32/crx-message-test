@@ -10,6 +10,16 @@ port.onMessage.addListener((message) => {
   }
 });
 
+/* duplicate port */
+const portCopy = chrome.runtime.connect({ name: 'content' });
+portCopy.onMessage.addListener((message) => {
+  console.log('%c content portCopy message', 'color: #b0b', message);
+  if (messageContainer) {
+    messageContainer.innerText = JSON.stringify(message, null, 2);
+  }
+});
+// console.log('%c ports', 'color: #b0b', port, portCopy);
+
 const sendMessageButton = document.querySelector('.App-content-section .send-message-button');
 if (sendMessageButton) {
   sendMessageButton.addEventListener('click', (event) => {
@@ -44,6 +54,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   return true; // async response
 });
 
+/* duplicate listener */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('%c message listener 2', 'color: #0bb', request, `from ${sender.tab ? sender.tab.url : 'extension'}`);
   setTimeout(() => {
