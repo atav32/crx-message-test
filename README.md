@@ -24,7 +24,7 @@ Time to get our hands dirty with some advanced use-cases.
 - `sendMessage()` will call the response callback automatically (even if none is supplied) and pass in `undefined`
   - it's useful for auto-confirming that the message was received
   - but it's an unexpected pattern in Javascript
-- If using the response callback _and_ an async function in `sendMessage()` receiver, then the message receiver function _must_ return `true`
+- If using the response callback _and_ an async function in `sendMessage()` receiver, then the message receiver function _must_ [return `true`](https://stackoverflow.com/a/20077854/1248811)
 - External page/app cannot listen for messages, only send
   - reasonable security design
 - Avoid race conditions by manually injecting the content script, instead of relying on the manifest file
