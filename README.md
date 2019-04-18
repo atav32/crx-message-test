@@ -31,8 +31,10 @@ Time to get our hands dirty with some advanced use-cases.
   - this way, you're sure that the background script is ready
 
 ### Resources
+- https://developer.chrome.com/apps/messaging#connect
 - https://developer.chrome.com/apps/runtime#method-sendMessage
 - https://developer.chrome.com/apps/manifest/externally_connectable
+- https://stackoverflow.com/questions/20077487/chrome-extension-message-passing-response-not-sent
 
 -----
 
