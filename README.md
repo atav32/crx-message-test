@@ -3,10 +3,11 @@ Time to get our hands dirty with some advanced use-cases.
 
 ### Lessons
 - Prefer `port.postMessage()` over `runtime.sendMessage()`
+- If more than one listener is registered with the same port name, only the last listener registered handles the event
+- Can't open and listen to the same port in the same frame (i.e. can't open a port with yourself)
 - `sendMessage()` will call the response callback automatically (even if none is supplied) and pass in `undefined`
 - External page/app cannot listen for messages, only send
 - Avoid race conditions by manually injecting the content script, instead of relying on the manifest file
-- If more than one listener is registered with the same port name, only the last listener registered handles the event
 
 ### Resources
 - https://developer.chrome.com/apps/runtime#method-sendMessage
