@@ -14,15 +14,21 @@ So there's a heavy burden on the developer to internalize all the possible error
 Time to get our hands dirty with some advanced use-cases.
 
 ### Lessons
-- Prefer `port.postMessage()` over `runtime.sendMessage()`
-  - you have more control over the lifetime of ports (won't get randomly garbage collected as long as you hold a reference to it)
+- Prefer [`port.postMessage()`](https://developer.chrome.com/apps/messaging#connect) over [`runtime.sendMessage()`](https://developer.chrome.com/apps/runtime#method-sendMessage)
+  - `runtime.sendMessage()` says it's for "*simple* one-time request" – don't be seduced by the Dark Side
+  - with ports, you have more control over the lifetime of the connection (the port won't get unexpectedly garbage collected as long as you hold a reference to it)
   - you can be notified when a port is disconnected
   - port names help avoid message crosstalk
   - you can't open and listen to the same port in the same frame (i.e. can't open a port with yourself), which helps prevent an anti-pattern of messaging overuse
   - if more than one listener is registered with the same port name, only the last listener registered handles the event
 - `sendMessage()` will call the response callback automatically (even if none is supplied) and pass in `undefined`
+  - it's useful for auto-confirming that the message was received
+  - but it's an unexpected pattern in Javascript
+- If using the response callback _and_ an async function in `sendMessage()` receiver, then the message receiver function _must_ return `true`
 - External page/app cannot listen for messages, only send
+  - reasonable security design
 - Avoid race conditions by manually injecting the content script, instead of relying on the manifest file
+  - this way, you're sure that the background script is ready
 
 ### Resources
 - https://developer.chrome.com/apps/runtime#method-sendMessage
