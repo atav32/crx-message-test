@@ -1,13 +1,13 @@
 ## [Chrome Extension Messaging API](https://developer.chrome.com/extensions/messaging) has *awful* documentation
-The big offender is the error message. That's right. Singular.
+The big offender is the one error message. Single. Error. Message.
 
-Depending on the bug, you either get silence or simply:
+Depending on the bug, Chrome either stays silence or displays:
 
 ```
 Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.
 ```
 
-Nothing specific. No line numbers either.
+Nothing specific. No line numbers.
 
 So there's a heavy burden on the developer to internalize all the possible error cases of the API.
 
